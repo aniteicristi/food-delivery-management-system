@@ -1,0 +1,8 @@
+com.FoodDeliveryManagementSystem
+com.FoodDeliveryManagementSystem.BusinessLogic
+com.FoodDeliveryManagementSystem.DataAccess
+com.FoodDeliveryManagementSystem.Presentation
+com.FoodDeliveryManagementSystem.Presentation.Components
+com.FoodDeliveryManagementSystem.Presentation.Dialogs
+com.FoodDeliveryManagementSystem.Util
+TitleBar

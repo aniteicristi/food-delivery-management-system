@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<JFXDialog fx:id="root"
+           xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.FoodDeliveryManagementSystem.Presentation.Dialogs.ProductDialogController"
+>
+    <JFXDialogLayout>
+        <heading>
+            <Label styleClass="m-heading">New Product</Label>
+        </heading>
+        <body>
+            <VBox spacing="30">
+                <padding>
+                    <Insets top="20" bottom="20" right="10" left="10"/>
+                </padding>
+                <JFXTextField promptText="Title" styleClass="m-textField" fx:id="title"/>
+                <HBox spacing="10">
+                    <JFXTextField promptText="Rating" styleClass="m-textField" fx:id="rating"/>
+                    <JFXTextField promptText="Calories" styleClass="m-textField" fx:id="calories"/>
+                </HBox>
+                <HBox spacing="10">
+                    <JFXTextField promptText="Protein" styleClass="m-textField" fx:id="proteins"/>
+                    <JFXTextField promptText="Fats" styleClass="m-textField" fx:id="fats"/>
+                </HBox>
+                <HBox spacing="10">
+                    <JFXTextField promptText="Sodium" styleClass="m-textField" fx:id="sodium"/>
+                    <JFXTextField promptText="Price" styleClass="m-textField" fx:id="price"/>
+                </HBox>
+            </VBox>
+        </body>
+        <actions>
+            <JFXButton styleClass="m-buttoncard" onAction="#CloseDialog">CLOSE</JFXButton>
+            <JFXButton fx:id="setupSave" styleClass="m-button" onAction="#SaveDialog"/>
+        </actions>
+    </JFXDialogLayout>
+</JFXDialog>

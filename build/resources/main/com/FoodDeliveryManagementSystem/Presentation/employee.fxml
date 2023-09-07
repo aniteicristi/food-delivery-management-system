@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.FoodDeliveryManagementSystem.Presentation.EmployeeController"
+           prefHeight="400.0" prefWidth="600.0">
+    <BorderPane>
+        <top>
+            <fx:include source="../../../TitleBar/View.fxml" fx:id="titleBar"/>
+        </top>
+        <center>
+            <BorderPane>
+                <top>
+                    <Label text="Orders:" styleClass="m-heading"/>
+                </top>
+                <center>
+                    <ScrollPane styleClass="m-scrollpane" prefWidth="Infinity">
+                        <VBox spacing="10" fx:id="orders">
+                            <padding>
+                                <Insets right="20" left="20" bottom="20" top="20"/>
+                            </padding>
+                        </VBox>
+                    </ScrollPane>
+                </center>
+            </BorderPane>
+        </center>
+    </BorderPane>
+</StackPane>

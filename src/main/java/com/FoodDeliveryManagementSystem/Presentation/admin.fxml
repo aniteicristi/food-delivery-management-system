@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.FoodDeliveryManagementSystem.Presentation.AdminController"
+           prefHeight="400.0" prefWidth="600.0"
+           fx:id="root"
+>
+    <fx:include source="Dialogs/productDialog.fxml" fx:id="productDialog"/>
+    <fx:include source="Dialogs/compositeProductDialog.fxml" fx:id="compositeProductDialog"/>
+    <BorderPane>
+        <top>
+            <fx:include source="../../../TitleBar/View.fxml" fx:id="titleBar"/>
+        </top>
+        <center>
+            <BorderPane>
+                <top>
+                    <VBox spacing="5">
+                        <padding>
+                            <Insets bottom="5" top="5" right="10" left="10"/>
+                        </padding>
+                        <Label text="Product operations: "/>
+                        <HBox spacing="20">
+                            <padding>
+                                <Insets bottom="5" top="5" right="10" left="10"/>
+                            </padding>
+                            <JFXButton
+                                    text="IMPORT"
+                                    textAlignment="CENTER"
+                                    prefHeight="30"
+                                    prefWidth="120"
+                                    styleClass="m-button"
+                                    onAction="#Import"
+                            >
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="FILE" glyphSize="15" glyphStyle="-fx-fill: WHITE"/>
+                                </graphic>
+                            </JFXButton>
+
+                            <JFXButton
+                                    text="CREATE"
+                                    textAlignment="CENTER"
+                                    prefHeight="30"
+                                    prefWidth="80"
+                                    styleClass="m-button"
+                                    onAction="#Create"
+                            >
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="PLUS" glyphSize="15" glyphStyle="-fx-fill: WHITE"/>
+                                </graphic>
+                            </JFXButton>
+                            <JFXButton
+                                    text="CREATE COMPOSITE"
+                                    textAlignment="CENTER"
+                                    prefHeight="30"
+                                    prefWidth="200"
+                                    styleClass="m-button"
+                                    onAction="#CreateComposite"
+                            >
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="LIST" glyphSize="15" glyphStyle="-fx-fill: WHITE"/>
+                                </graphic>
+                            </JFXButton>
+                            <JFXButton
+                                    text="EDIT"
+                                    textAlignment="CENTER"
+                                    prefHeight="30"
+                                    prefWidth="70"
+                                    styleClass="m-button"
+                                    onAction="#Update"
+                            >
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="EDIT" glyphSize="15" glyphStyle="-fx-fill: WHITE"/>
+                                </graphic>
+                            </JFXButton>
+                            <JFXButton
+                                    text="DELETE"
+                                    textAlignment="CENTER"
+                                    prefHeight="30"
+                                    prefWidth="80"
+                                    styleClass="m-button"
+                                    onAction="#Delete"
+                            >
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="TRASH" glyphSize="15" glyphStyle="-fx-fill: WHITE"/>
+                                </graphic>
+                            </JFXButton>
+                        </HBox>
+                        <Label text="Order reports: "/>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <padding>
+                                <Insets bottom="5" top="5" right="10" left="10"/>
+                            </padding>
+                            <Label text="Hour interval: from"/>
+                            <JFXTextField prefWidth="30" styleClass="m-textField" fx:id="from"/>
+                            <Label text="to"/>
+                            <JFXTextField prefWidth="30" styleClass="m-textField" fx:id="to"/>
+                            <JFXButton prefWidth="150" prefHeight="20" text="Generate report" onAction="#report1">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="FILTER"/>
+                                </graphic>
+                            </JFXButton>
+                        </HBox>
+                        <Label text="Products reports: "/>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <padding>
+                                <Insets bottom="5" top="5" right="10" left="10"/>
+                            </padding>
+                            <JFXTextField prefWidth="100" promptText="times ordered" styleClass="m-textField" fx:id="times"/>
+
+                            <JFXButton prefWidth="150" prefHeight="20" text="Generate report" onAction="#report2">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="FILTER"/>
+                                </graphic>
+                            </JFXButton>
+                            <JFXTextField prefWidth="120" styleClass="m-textField" promptText="Date ordered" fx:id="dateOrdered"/>
+                            <JFXButton prefWidth="150" prefHeight="20" text="Generate report" onAction="#report4">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="FILTER"/>
+                                </graphic>
+                            </JFXButton>
+                        </HBox>
+                        <Label text="Client reports: "/>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <padding>
+                                <Insets bottom="5" top="5" right="10" left="10"/>
+                            </padding>
+                            <JFXTextField prefWidth="100" promptText="times ordered" styleClass="m-textField" fx:id="clientTimes"/>
+                            <JFXTextField prefWidth="100" promptText="Order value" styleClass="m-textField" fx:id="orderValue"/>
+                            <JFXButton prefWidth="150" prefHeight="20" text="Generate report" onAction="#report3">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="FILTER"/>
+                                </graphic>
+                            </JFXButton>
+                        </HBox>
+                    </VBox>
+                </top>
+                <left>
+                    <VBox prefWidth="350">
+                        <padding>
+                            <Insets bottom="10" top="10" right="10" left="10"/>
+                        </padding>
+                        <Label text="Clients: "/>
+                        <ListView fx:id="clients" prefWidth="Infinity">
+                            <padding>
+                                <Insets left="5" top="5" right="5" bottom="5"/>
+                            </padding>
+                        </ListView>
+                    </VBox>
+                </left>
+                <center>
+                    <VBox>
+                        <padding>
+                            <Insets bottom="10" top="10" right="10" left="10"/>
+                        </padding>
+                        <Label text="Orders: "/>
+                        <ListView fx:id="orders" prefWidth="Infinity">
+                            <padding>
+                                <Insets left="5" top="5" right="5" bottom="5"/>
+                            </padding>
+                        </ListView>
+                    </VBox>
+                </center>
+                <right>
+                    <VBox prefWidth="550">
+                        <padding>
+                            <Insets bottom="10" top="10" right="10" left="10"/>
+                        </padding>
+                        <Label text="Products:"/>
+                        <ListView fx:id="menuItems" prefWidth="Infinity">
+                            <padding>
+                                <Insets left="5" top="5" right="5" bottom="5"/>
+                            </padding>
+                        </ListView>
+                    </VBox>
+                </right>
+            </BorderPane>
+        </center>
+    </BorderPane>
+</StackPane>

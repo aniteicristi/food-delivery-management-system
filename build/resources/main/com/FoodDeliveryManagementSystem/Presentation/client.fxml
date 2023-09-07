@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.FoodDeliveryManagementSystem.Presentation.ClientController"
+           fx:id="root"
+>
+    <fx:include source="Dialogs/checkoutDialog.fxml" fx:id="checkoutDialog"/>
+    <BorderPane>
+        <top>
+            <fx:include source="../../../TitleBar/View.fxml" fx:id="titleBar"/>
+        </top>
+        <center>
+            <BorderPane>
+                <top>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <padding>
+                            <Insets top="10" bottom="10" left="10" right="10"/>
+                        </padding>
+                        <JFXTextField styleClass="m-textField" fx:id="nameFilter" promptText="Search keyword"/>
+                        <JFXTextField styleClass="m-textField" fx:id="priceFilter" promptText="Price" prefWidth="50"/>
+                        <JFXTextField styleClass="m-textField" fx:id="ratingFilter" promptText="Rating >" prefWidth="70"/>
+                        <JFXTextField styleClass="m-textField" fx:id="fatFilter" promptText="Fats" prefWidth="40"/>
+                        <JFXTextField styleClass="m-textField" fx:id="proteinFilter" promptText="Proteins" prefWidth="60"/>
+                        <JFXTextField styleClass="m-textField" fx:id="sodiumFilter" promptText="Sodium" prefWidth="60"/>
+                        <JFXTextField styleClass="m-textField" fx:id="caloriesFilter" promptText="Calories" prefWidth="70"/>
+                        <JFXButton text="FILTER" styleClass="m-button-flat" onAction="#performFiltering"/>
+                    </HBox>
+                </top>
+                <center>
+                    <ScrollPane styleClass="m-scrollpane" fx:id="scrollPane" prefWidth="Infinity">
+                        <VBox spacing="10" fx:id="productContainer">
+                            <padding>
+                                <Insets right="20" left="20" bottom="20" top="20"/>
+                            </padding>
+                        </VBox>
+                    </ScrollPane>
+                </center>
+                <bottom>
+                    <HBox alignment="CENTER_RIGHT">
+                        <padding>
+                            <Insets bottom="10" top="10" right="10"/>
+                        </padding>
+                        <JFXButton text="CHECKOUT" styleClass="m-button" onAction="#openCheckoutDialog"/>
+                    </HBox>
+                </bottom>
+            </BorderPane>
+        </center>
+    </BorderPane>
+</StackPane>

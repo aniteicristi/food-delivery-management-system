@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.JFXButton?>
+<JFXDialog fx:id="root"
+           xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.FoodDeliveryManagementSystem.Presentation.Dialogs.CompositeProductDialogController"
+
+>
+    <JFXDialogLayout prefWidth="800" prefHeight="600">
+        <heading>
+            <Label styleClass="m-heading">New Product</Label>
+        </heading>
+        <body>
+            <BorderPane>
+                <center>
+                    <VBox spacing="20">
+                        <padding>
+                            <Insets top="20" bottom="20" right="10" left="10"/>
+                        </padding>
+                        <JFXTextField promptText="Title" styleClass="m-textField" fx:id="title"/>
+                        <JFXTextField promptText="Rating" styleClass="m-textField" fx:id="rating"/>
+                        <JFXTextField promptText="Price" styleClass="m-textField" fx:id="price"/>
+                        <ListView fx:id="added"/>
+                    </VBox>
+                </center>
+                <right>
+                    <VBox prefWidth="400" spacing="10">
+                        <ListView fx:id="products"/>
+                        <HBox spacing="10">
+                            <JFXButton text="ADD" onAction="#addProduct" styleClass="m-button"/>
+                            <JFXButton text="REMOVE" onAction="#removeProduct" styleClass="m-button"/>
+                        </HBox>
+                    </VBox>
+                </right>
+            </BorderPane>
+        </body>
+        <actions>
+            <JFXButton styleClass="m-buttoncard" onAction="#CloseDialog">CLOSE</JFXButton>
+            <JFXButton fx:id="setupSave" styleClass="m-button" onAction="#SaveDialog"/>
+        </actions>
+    </JFXDialogLayout>
+</JFXDialog>

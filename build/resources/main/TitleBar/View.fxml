@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<HBox
+    xmlns="http://javafx.com/javafx"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="TitleBar.Controller"
+    onMousePressed="#pressed"
+    onMouseDragged="#dragged"
+    alignment="TOP_RIGHT" prefWidth="Infinity" prefHeight="30"
+    style="-fx-background-color: rgb(77,102,204); -fx-text-fill: WHITE; "
+>
+
+<!--    THE BUTTONS ON THE TITLE BAR.-->
+    <JFXButton
+               textAlignment="CENTER"
+               onAction="#minimize"
+               prefWidth="40"
+               prefHeight="Infinity"
+               style="-fx-text-fill: WHITE; -fx-font-weight: bold; -jfx-disable-visual-focus: true;"
+    >
+        <graphic>
+            <FontAwesomeIconView glyphName="WINDOW_MINIMIZE" glyphSize="10" glyphStyle="-fx-fill: WHITE"/>
+        </graphic>
+    </JFXButton>
+    <JFXButton
+            textAlignment="CENTER"
+            onAction="#maximize"
+            prefWidth="40"
+            prefHeight="Infinity"
+            style="-fx-text-fill: WHITE; -fx-font-weight: bold; -jfx-disable-visual-focus: true;"
+    >
+        <graphic>
+            <FontAwesomeIconView glyphName="WINDOW_MAXIMIZE" glyphSize="10" glyphStyle="-fx-fill: WHITE"/>
+        </graphic>
+    </JFXButton>
+    <JFXButton
+               textAlignment="CENTER"
+               onAction="#close"
+               prefWidth="40"
+               prefHeight="Infinity"
+               style="-fx-text-fill: WHITE; -fx-font-weight: bold; -jfx-disable-visual-focus: true;"
+    >
+        <graphic>
+            <FontAwesomeIconView glyphName="TIMES" glyphSize="15" glyphStyle="-fx-fill: WHITE"/>
+        </graphic>
+    </JFXButton>
+</HBox>
